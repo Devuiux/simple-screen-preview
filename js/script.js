@@ -37,18 +37,20 @@ function loadFrame(siteUrl) {
 
 function errorOnLoadFrame() {
   $('#frame').attr("src", "");
-  $('.error-message').html('<p>The URL you provided could not be loaded</p>');
-  $('.error-message').fadeIn(450);
+  $('.error-message').html('<p>The URL you provided could not be loaded</p>').fadeIn(450);
 }
 
 function scaleFrame(width, height) {
-  $('#site-container').width(width + "px");
-  $('#site-container').height(height + "px");
-  $('#site-detail').width(width + "px");
+  if (width < $(document).width()){
+    $('#framebox').css('left', '50%').css('margin-left', -width / 2);
+  } else {
+    $('#framebox').css('margin-left', 0).css('left', 0);
+  }
 
-  $('#frame').width(width);
-  $('#frame').height(height);
-  $('#framebox').css('margin-left', -width / 2);
+  $('#site-container').width(width + "px").height(height + "px");
+  $('#site-detail').width(width + "px");
+  
+  $('#frame').width(width).height(height);
 
   $('#width-pix').val(width);
   $('#height-pix').val(height);

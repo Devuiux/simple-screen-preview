@@ -28,6 +28,7 @@ Observations
 6. Is slow when testing big websites
 
 7. The content in iframe is aligned to the window when the iframe is wide not the iframe itself.
+	- fixed - Checking if the width of the screen is larger than the width of the document
 
 8. Would be nice to have a button for zoom-out. 
 	- possible with scale calculated for each size
