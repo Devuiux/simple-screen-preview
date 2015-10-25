@@ -1,0 +1,33 @@
+
+Observations
+
+0. What methods are there for doing this.
+	- after research I used HTML <iframe> Tag
+
+1. This app is useless for small screen devices.
+
+2. The URL search bar is taking space that is necessary for the iframe.
+	- fixed
+
+3. I added some new controls: 
+	- Refresh - reloads the URL
+	- Rotate - rotates the iframe
+	- new URL - shows the URL input
+	- Custom input - allows the user to set it's custom screen size
+
+4. The search is limited to 'http://example.com'
+	- fixed - the user can use 'example.com' as well
+	- switched from <input type="url"> to <input type="text"> for passing regex
+
+4.1 Finding a new regex for 'example.com'
+	- fixed - use ? after https like: https?
+
+5. Refused to display 'https://www.youtube.com/' in a frame because it set 'X-Frame-Options' to 'SAMEORIGIN'.
+	- fixed - By making a URL call
+
+6. Is slow when testing big websites
+
+7. The content in iframe is aligned to the window when the iframe is wide not the iframe itself.
+
+8. Would be nice to have a button for zoom-out. 
+	- possible with scale calculated for each size

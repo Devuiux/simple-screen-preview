@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Test your website at different screen resolutions.">
+  <title>Simple Screen Preview</title>
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="js/script.js"></script>
+</head>
+
+<body>
+
+  <div class="navbar">
+
+    <ul class="screens-list clearfix float-left">
+      <li onclick="scaleFrame(320,568);"><img src="img/ic_smartphone_black_24px.svg" alt=""><br />Mobile</li>
+      <li onclick="scaleFrame(800,1280);"><img src="img/ic_tablet_black_24px.svg" alt=""><br />Tablet</li>
+      <li onclick="scaleFrame(1280,768);"><img src="img/ic_laptop_black_24px.svg" alt=""><br />Notebook</li>
+      <li onclick="scaleFrame(1920,1080);"><img src="img/ic_desktop_mac_black_24px.svg" alt=""><br />Desktop</li>
+
+      <li onclick="refreshFrame();"><img src="img/ic_refresh_black_24px.svg" alt=""><br />Refresh</li>
+      <li onclick="rotateFrame();"><img src="img/ic_screen_rotation_black_24px.svg" alt=""><br />Rotate</li>
+
+      <li onclick="newUrl()"><img src="img/ic_input_black_24px.svg" alt=""><br />new url</li>
+    </ul> 
+
+    <ul class="screen-custom clearfix float-right">
+      <li onclick="customFrame();" class="apply">Apply</li>
+      <li><input id="height-pix" type="number"><br /><span class="description">height</span></li>
+      <li><input id="width-pix" type="number"><br /><span class="description">width</span></li>
+    </ul>    
+  
+  </div>
+
+  <div class="relative-nav">
+
+    <div id="search-url">
+      <h2>Simple Screen Preview</h2>
+      <h4>Test your site at different screen resolutions & devices</h4>
+      <form class="cd-form" name="siteForm">
+        <div class="hide error-message"></div>
+        <input id="site-url" class="clearfix float-left" type="text" placeholder="URL eg. http://www.example.com or www.example.com" class="form-control" required>
+        <input id="submit-url" class="clearfix float-right" type="button" value="Preview">
+      </form>
+    </div>
+
+    <div id="framebox">
+      <div id="site-container">
+        <iframe id="frame" src="" frameborder="0"></iframe>
+      </div>
+      <div id="site-detail">
+        <div>
+          <p id="site-name" class="float-left"></p>
+        </div>
+        <div>
+          <p id="iframe-resolution" class="float-right"></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

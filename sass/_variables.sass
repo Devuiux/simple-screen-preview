@@ -1,0 +1,36 @@
+$nav-bg: #e8e8e8
+$body-bg: #F5F5F5
+$accent: #00b8d4
+$text: #282828
+
+$main-box-shadow: 0 0 8px #ccc
+$radius: 3.6px
+$opacity: 0.9
+
+$dashed-border-color: #e8e8e8
+
+$modal-bg: #444
+$porcelain: #ecf0f1                // Porcelain
+$error: #e94b35                    // Cinnabar
+
+// antialiasing mode font rendering
+=font-smoothing
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+// breakpoints
+$S: 480px
+$M: 910px
+$L: 1170px
+
+// media queries
+=MQ($canvas)
+  @if $canvas == S
+    @media only screen and (min-width: $S)
+      @content
+  @else if $canvas == M
+    @media only screen and (min-width: $M)
+      @content
+  @else if $canvas == L
+    @media only screen and (min-width: $L)
+      @content

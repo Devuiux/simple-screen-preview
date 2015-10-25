@@ -1,0 +1,112 @@
+
+//////// IMPORTS ////////////////////////////
+
+@import 'variables'
+@import 'normalize'
+@import 'fonts'
+@import 'bourbon/bourbon'
+@import 'components'
+@import 'form'
+
+///////////////////////////////////////////////
+
+
+*, *::after, *::before
+	box-sizing: border-box
+
+body
+	background: $body-bg
+	color: $text
+
+ul
+	list-style-type: none
+	+margin(0)
+	+padding(0)
+
+.navbar
+	+clearfix
+	+user-select(none)
+	background-color: $nav-bg
+	.screens-list
+		width: 100%
+		li
+			cursor: pointer
+			float: left
+			padding: 12px
+			font-size: 1.1rem
+			letter-spacing: .2rem
+			&:hover
+				background-color: darken($nav-bg, 12%)
+
+	.screen-custom
+		width: 100%
+		li
+			float: left
+		.description
+			font-size: 1.1rem
+			letter-spacing: .2rem
+		.apply
+			padding: 27px 12px
+			font-size: 1.1rem
+			cursor: pointer
+			letter-spacing: .2rem
+			&:hover
+				background-color: darken($nav-bg, 12%)
+
+		input
+			width: 90px
+			padding: 4px 0 4px 10px
+			border: none
+			font-weight: 400
+			background-color: #fff
+			border-radius: $radius
+			&:focus
+				outline: none
+
+	+MQ(M)
+		.screens-list
+			width: 62%
+			padding-left: 20px
+		.screen-custom
+			width: 38%
+			padding-right: 20px
+			li
+				float: right
+
+	li
+		position: relative
+		text-align: center
+		padding: 12px
+		text-transform: uppercase
+		font-weight: 600
+		line-height: 2rem
+		+font-smoothing
+
+.relative-nav
+	position: relative
+	width: 100%
+
+#search-url
+	width: 90%
+	margin: 4em auto
+	text-align: center
+	+font-smoothing
+
+
+
+#framebox
+	position: absolute
+	top: 0
+	left: 50%
+	+transition(margin-left .5s .1s)
+	display: none
+
+
+#frame
+	box-shadow: $main-box-shadow
+	border-radius: $radius
+	+transition(width .5s .1s, height .5s .1s)
+
+#site-detail
+	color: lighten($text, 40%)
+	+font-smoothing
