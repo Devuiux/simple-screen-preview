@@ -89,12 +89,10 @@ function checkURL() {
   var siteUrl = $('#site-url').val();
 
   if (siteUrl == '') {
-    $('.error-message').html('<p>Please insert the URL</p>');
-    $('.error-message').fadeIn(450);
+    $('.error-message').html('<p>Please insert the URL</p>').fadeIn(450);
     return false;
   } else if (!siteUrl.match(regexURL)) {
-    $('.error-message').html('<p>Please insert a valid URL</p>');
-    $('.error-message').fadeIn(450);
+    $('.error-message').html('<p>Please insert a valid URL</p>').fadeIn(450);
     return false;
   } else {
     $('.error-message').hide();
