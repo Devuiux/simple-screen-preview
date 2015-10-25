@@ -12,7 +12,7 @@ Observations
 3. I added some new controls: 
 	- Refresh - reloads the URL
 	- Rotate - rotates the iframe
-	- new URL - shows the URL input
+	- New URL - shows the URL input
 	- Custom input - allows the user to set it's custom screen size
 
 4. The search is limited to 'http://example.com'
@@ -32,3 +32,9 @@ Observations
 
 8. Would be nice to have a button for zoom-out. 
 	- possible with scale calculated for each size
+
+
+Technologies
+
+1. Custom CSS using SASS and Bourbon
+2. jQuery
