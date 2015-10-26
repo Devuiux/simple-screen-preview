@@ -11,15 +11,10 @@ $(document).ready(function() {
 });
 
 function previewFrame() {
-
   if (checkURL()) {
     var siteUrl = $('#site-url').val();
-
-    $.get(siteUrl, function() {
-      loadFrame(siteUrl);
-    }).error(function() {
-      errorOnLoadFrame();
-    });
+     
+     loadFrame(siteUrl);
   }
 }
 
@@ -78,6 +73,7 @@ function refreshFrame() {
 }
 
 function newUrl() {
+  $('#frame').attr('src', "");
   $('.error-message').hide();
   $('#site-url').val('');
   $('#framebox').css('display', 'none');
