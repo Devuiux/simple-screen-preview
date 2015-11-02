@@ -13,8 +13,8 @@ $(document).ready(function() {
 function previewFrame() {
   if (checkURL()) {
     var siteUrl = $('#site-url').val();
-     
-     loadFrame(siteUrl);
+
+    loadFrame(siteUrl);
   }
 }
 
@@ -37,9 +37,9 @@ function errorOnLoadFrame() {
 
 function scaleFrame(width, height) {
   if (width < $(document).width()){
-    $('#framebox').css('left', '50%').css('margin-left', -width / 2);
+    $('#framebox').css({'left':'50%', 'margin-left':-width / 2});
   } else {
-    $('#framebox').css('margin-left', 0).css('left', 0);
+    $('#framebox').css({'margin-left':0, 'left':0});
   }
 
   $('#site-container').width(width + "px").height(height + "px");
