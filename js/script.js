@@ -1,26 +1,18 @@
 $(document).ready(function() {
   $('#submit-url').on('click', function() {
-    previewFrame();
+    if (checkURL()) loadFrame($('#site-url').val());
   });
   $('#site-url').keypress(function(e) {
     if (e.keyCode == 13 || e.which == 13) {
       e.preventDefault();
-      previewFrame();
+      if (checkURL()) loadFrame($('#site-url').val());
     }
   });
 });
 
-function previewFrame() {
-  if (checkURL()) {
-    var siteUrl = $('#site-url').val();
-
-    loadFrame(siteUrl);
-  }
-}
-
 function loadFrame(siteUrl) {
-  var width = $(document).width() - 30;
-  var height = $(document).height() - 130;
+  var width = $(document).width() - 30, height = $(document).height() - 130;
+  
   scaleFrame(width, height);
 
   $('#search-url').hide();
@@ -30,17 +22,8 @@ function loadFrame(siteUrl) {
   $('#site-name').html(siteUrl);
 }
 
-function errorOnLoadFrame() {
-  $('#frame').attr("src", "");
-  $('.error-message').html('<p>The URL you provided could not be loaded</p>').fadeIn(450);
-}
-
 function scaleFrame(width, height) {
-  if (width < $(document).width()){
-    $('#framebox').css({'left':'50%', 'margin-left':-width / 2});
-  } else {
-    $('#framebox').css({'margin-left':0, 'left':0});
-  }
+  (width < $(document).width()) ? $('#framebox').css({'left':'50%', 'margin-left':-width / 2}): $('#framebox').css({'margin-left':0, 'left':0});
 
   $('#site-container').width(width + "px").height(height + "px");
   $('#site-detail').width(width + "px");
@@ -55,15 +38,13 @@ function scaleFrame(width, height) {
 }
 
 function customFrame() {
-  var width = $('#width-pix').val();
-  var height = $('#height-pix').val();
+  var width = $('#width-pix').val(), height = $('#height-pix').val();
 
   scaleFrame(width, height);
 }
 
 function rotateFrame() {
-  var width = $('#site-container').height();
-  var height = $('#site-container').width();
+  var width = $('#site-container').height(), height = $('#site-container').width();
 
   scaleFrame(width, height);
 }
@@ -81,7 +62,7 @@ function newUrl() {
 }
 
 function checkURL() {
-  var regexURL = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+  const regexURL = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
   var siteUrl = $('#site-url').val();
 
   if (siteUrl == '') {
@@ -92,9 +73,8 @@ function checkURL() {
     return false;
   } else {
     $('.error-message').hide();
-    if (!~siteUrl.indexOf("http")) {
-      $('#site-url').val("http://" + siteUrl);
-    }
+    if (!~siteUrl.indexOf("http")) $('#site-url').val("http://" + siteUrl);
+
     return true;
   }
 
